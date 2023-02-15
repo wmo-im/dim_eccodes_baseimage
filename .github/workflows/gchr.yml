@@ -14,7 +14,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: dim_eccodes_baseimage
+  IMAGE_NAME: wmo-im/dim_eccodes_baseimage
 
 jobs:
   # Push image to GitHub Packages.
