@@ -27,7 +27,7 @@ ARG BUILD_PACKAGES="build-essential cmake gfortran" \
 ENV DEBIAN_FRONTEND="noninteractive" \
     TZ="Etc/UTC" \
     ECCODES_DIR=/opt/eccodes \
-    PATH="$PATH;/opt/eccodes/bin"
+    PATH="$PATH:/opt/eccodes/bin"
 
 WORKDIR /tmp/eccodes
 
