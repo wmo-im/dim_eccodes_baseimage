@@ -64,3 +64,12 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      - name: Run Trivy vulnerability scanner on latest
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+          image-ref: 'ghcr.io/wmo-im/dim_eccodes_baseimage'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
