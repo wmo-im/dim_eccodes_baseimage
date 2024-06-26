@@ -46,4 +46,4 @@ RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";"
 
 WORKDIR /root
 # Clean up
-RUN rm -rf /tmp/* /var/cache/apt/archives/* /var/lib/apt/lists/* /var/tmp/* /usr/share
+RUN rm -rf /tmp/eccodes
