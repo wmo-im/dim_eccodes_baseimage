@@ -21,7 +21,7 @@
 
 FROM ubuntu:jammy
 
-ARG BUILD_PACKAGES="build-essential cmake gfortran" \
+ARG BUILD_PACKAGES="build-essential cmake gfortran python3-dev linux-libc-dev" \
     ECCODES_VER=2.36.0
 
 ENV DEBIAN_FRONTEND="noninteractive" \
@@ -33,7 +33,7 @@ WORKDIR /tmp/eccodes
 
 RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";" | cat > /etc/apt/apt.conf.d/10no--check-valid-until \
     && apt-get update -y \
-    && apt-get install -y ${BUILD_PACKAGES} python3 python3-pip python3-dev curl \
+    && apt-get install -y ${BUILD_PACKAGES} python3 python3-pip curl \
     && curl https://confluence.ecmwf.int/download/attachments/45757960/eccodes-${ECCODES_VER}-Source.tar.gz --output eccodes-${ECCODES_VER}-Source.tar.gz \
     && tar xzf eccodes-${ECCODES_VER}-Source.tar.gz \
     && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=${ECCODES_DIR} -DENABLE_AEC=OFF ../eccodes-${ECCODES_VER}-Source && make && ctest && make install # \
