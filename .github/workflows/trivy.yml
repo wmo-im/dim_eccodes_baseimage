@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build wis2box-management
+      - name: Build docker image for test
         run: |
           docker build -t dim_eccodes_baseimage:test .
       - name: Run Trivy vulnerability scanner on dim_eccodes_baseimage:test

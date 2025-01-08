@@ -31,6 +31,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 
 WORKDIR /tmp/eccodes
 
+# compile eccodes binaries from source, install python-eccodes-modules, add cmd line editors
 RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";" | cat > /etc/apt/apt.conf.d/10no--check-valid-until \
     && apt-get update -y \
     && apt-get install -y ${BUILD_PACKAGES} python3 python3-pip curl \
