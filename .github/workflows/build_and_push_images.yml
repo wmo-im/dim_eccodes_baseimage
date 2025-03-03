@@ -9,6 +9,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '0 6 * * *'  # runs daily at 6h UTC
   release:
     types: [published]
 
