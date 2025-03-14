@@ -39,7 +39,7 @@ RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";"
     && tar xzf eccodes-${ECCODES_VER}-Source.tar.gz \
     && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=${ECCODES_DIR} -DENABLE_AEC=OFF ../eccodes-${ECCODES_VER}-Source && make && ctest && make install \
     && cd / && rm -rf /tmp/eccodes \
-    && apt-get install vim emacs nano \
+    && apt-get install -y vim emacs nano \
     && apt-get remove --purge -y ${BUILD_PACKAGES} \
     && apt autoremove -y  \
     && apt-get -q clean \
