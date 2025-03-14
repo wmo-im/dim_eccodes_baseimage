@@ -37,9 +37,9 @@ RUN echo "Acquire::Check-Valid-Until \"false\";\nAcquire::Check-Date \"false\";"
     && apt-get install -y ${BUILD_PACKAGES} python3 python3-pip curl \
     && curl https://confluence.ecmwf.int/download/attachments/45757960/eccodes-${ECCODES_VER}-Source.tar.gz --output eccodes-${ECCODES_VER}-Source.tar.gz \
     && tar xzf eccodes-${ECCODES_VER}-Source.tar.gz \
-    && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=${ECCODES_DIR} -DENABLE_AEC=OFF ../eccodes-${ECCODES_VER}-Source && make && ctest && make install # \
+    && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=${ECCODES_DIR} -DENABLE_AEC=OFF ../eccodes-${ECCODES_VER}-Source && make && ctest && make install \
     && cd / && rm -rf /tmp/eccodes \
-    && apt-get install python3-eccodes vim vi emacs nano \ 
+    && apt-get install -y python3-eccodes vim emacs nano \
     && apt-get remove --purge -y ${BUILD_PACKAGES} \
     && apt autoremove -y  \
     && apt-get -q clean \
