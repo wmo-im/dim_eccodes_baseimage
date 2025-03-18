@@ -1,0 +1,19 @@
+on: [ pull_request ]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build docker image for test
+        run: |
+          docker build -t dim_eccodes_baseimage:test .
+      - name: check bufr_dump -V returns ecCodes version
+        run: |
+          output=`docker run dim_eccodes_baseimage:test bufr_dump -V | grep ecCodes`
+          echo $output
+          if [ -z "$output" ]; then
+            echo "bufr_dump -V did not return ecCodes version"
+            exit 1
+          fi
