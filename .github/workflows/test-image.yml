@@ -1,3 +1,5 @@
+name: test eccodes cmd line tools
+
 on: [ pull_request ]
 
 jobs:
