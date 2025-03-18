@@ -4,6 +4,8 @@ This repository contains the Dockerfile for the base image used by [wis2box-api]
 
 The baseimage can also be used gain access to the [eccodes command-line tools](https://confluence.ecmwf.int/display/ECC/Command+line+tools) without requiring the installation of the eccodes library on the host machine.
 
+Note that the image does not track eccodes releases, but is updated on a case-by-case basis.
+
 ## Building and using the baseimage
 
 ```bash
