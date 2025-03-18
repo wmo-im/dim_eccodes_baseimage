@@ -2,7 +2,7 @@
 
 This repository contains the Dockerfile for the base image used by [wis2box-api](https://github.com/wmo-im/wis2box-api), providing a pre-compiled version of the [eccodes](https://confluence.ecmwf.int/display/ECC/ecCodes+Home) library to enable data-conversion capabilities within [wis2box](https://docs.wis2box.wis.wmo.int).
 
-The baseimage can also be used gain access to the [eccodes command-line tools](https://confluence.ecmwf.int/display/ECC/Command+line+tools) without requiring the installation of the eccodes library on the host machine.
+The baseimage can also be used to gain access to the [eccodes command-line tools](https://confluence.ecmwf.int/display/ECC/Command+line+tools) without requiring the installation of the eccodes library on the host machine.
 
 Note that the image does not track eccodes releases, but is updated on a case-by-case basis.
 
